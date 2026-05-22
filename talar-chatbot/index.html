@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapytaj Tomka Borkowego o Andrzeja Talara</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">Rozmowy</span>
+        <button class="btn-new" id="new-chat-btn" title="Nowa rozmowa">&#43;</button>
+      </div>
+      <div class="conversations-list" id="conversations-list"></div>
+      <div class="sidebar-footer">Serial „Dom" · TVP 1980–2000</div>
+    </aside>
+
+    <!-- OVERLAY for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- CHAT PANEL -->
+    <div class="chat-panel">
+
+      <header class="chat-header">
+        <button class="btn-toggle" id="sidebar-toggle" title="Menu">&#9776;</button>
+        <div class="chat-header-info">
+          <div class="avatar">TB</div>
+          <div>
+            <div class="chat-header-name">Tomasz Borkowy</div>
+            <div class="chat-header-sub">o Andrzeju Talarze &middot; serial „Dom"</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="messages" id="messages"></div>
+
+      <div class="input-area">
+        <form id="chat-form">
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Napisz wiadomość..."
+            autocomplete="off"
+          />
+          <button type="submit" id="send-btn" title="Wyślij">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
