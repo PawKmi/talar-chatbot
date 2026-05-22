@@ -58,8 +58,7 @@ function createConversation() {
   saveState();
   renderSidebar();
   renderMessages();
-  // Add welcome message to DOM only (not stored in messages array — it's always the same)
-  appendWelcome();
+
   focusInput();
 }
 
