@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = 'talar_chatbot_v1';
 
-const WELCOME_MSG = 'Dzień dobry. Tomasz Borkowy przy klawiaturze. Przez tyle lat grałem Andrzeja Talara, że czasem sam nie wiem, gdzie kończy się Talar, a zaczyna Borkowy. O co chcecie zapytać?';
+const WELCOME_MSG = 'Dzień dobry. To jest aplikacja imitująca Tomasza Borkowego, wcielającego się w Andrzeja Talara z serialu "Dom".  O co chcecie zapytać?';
 
 // ── STATE ───────────────────────────────────────────────
 
