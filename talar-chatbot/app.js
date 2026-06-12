@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = 'talar_chatbot_v1';
 
-const WELCOME_MSG = 'Dzień dobry. To jest aplikacja imitująca Tomasza Borkowego, wcielającego się w Andrzeja Talara z serialu "Dom".  O co chcecie zapytać?';
+const WELCOME_MSG = 'Witam. To ja, Andrzej Talar grany przez Tomasza Borkowy w serialu "Dom". Tym razem to nie on mówi za mnie, ale ja mam własny glos - bo jestem wykreowany przez AI. Mogę móić nie tylko o sobie, ale i o moim aktorze. Pytaj, ja Ci odpowiem.';
 
 // ── STATE ───────────────────────────────────────────────
 
