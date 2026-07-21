@@ -17,6 +17,7 @@ document.getElementById('btn-play').addEventListener('click', () => {
 });
 
 document.getElementById('btn-skip').addEventListener('click', dismissSplash);
+document.getElementById('btn-start-chat').addEventListener('click', dismissSplash);
 
 // ── CONSTANTS ──────────────────────────────────────────
 

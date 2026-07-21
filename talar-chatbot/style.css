@@ -499,6 +499,28 @@ html, body {
   overflow: hidden;
 }
 
+.splash-player-wrap::before,
+.splash-player-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  pointer-events: all;
+}
+
+.splash-player-wrap::before {
+  top: 0;
+  height: 72px;
+  background: #0a0a0a;
+}
+
+.splash-player-wrap::after {
+  bottom: 0;
+  height: 52px;
+  background: #0a0a0a;
+}
+
 .splash-player-wrap #yt-player,
 .splash-player-wrap iframe {
   position: absolute;
@@ -543,6 +565,25 @@ html, body {
 .splash-cover p {
   color: #666;
   font-size: 13px;
+}
+
+.btn-start-chat {
+  background: var(--accent);
+  color: #0e0e12;
+  border: none;
+  border-radius: 30px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.btn-start-chat:hover {
+  background: #e0bf6a;
+  transform: scale(1.03);
 }
 
 /* ── RESPONSIVE ──────────────────────────────────── */
