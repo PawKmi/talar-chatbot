@@ -1,8 +1,46 @@
+// ── SPLASH / YOUTUBE ────────────────────────────────────
+
+// Wklej tu ID filmu z YouTube (część URL po "watch?v=")
+// Np. dla https://www.youtube.com/watch?v=abc123 wpisz: 'abc123'
+const YOUTUBE_VIDEO_ID = 'hfqvNUy7XJc';
+
+let ytPlayer = null;
+
+function dismissSplash() {
+  const splash = document.getElementById('splash');
+  splash.classList.add('hidden');
+  setTimeout(() => { splash.style.display = 'none'; }, 650);
+}
+
+function onYouTubeIframeAPIReady() {
+  ytPlayer = new YT.Player('yt-player', {
+    videoId: YOUTUBE_VIDEO_ID,
+    playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
+    events: {
+      onStateChange: (e) => {
+        if (e.data === YT.PlayerState.ENDED) dismissSplash();
+      }
+    }
+  });
+}
+window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+
+document.getElementById('btn-play').addEventListener('click', () => {
+  document.getElementById('splash-cover').classList.add('hidden');
+  if (ytPlayer && ytPlayer.playVideo) {
+    ytPlayer.playVideo();
+  } else {
+    onYouTubeIframeAPIReady();
+  }
+});
+
+document.getElementById('btn-skip').addEventListener('click', dismissSplash);
+
 // ── CONSTANTS ──────────────────────────────────────────
 
 const STORAGE_KEY = 'talar_chatbot_v1';
 
-const WELCOME_MSG = 'Witam. To ja, Andrzej Talar grany przez Tomasza Borkowy w serialu "Dom". Tym razem to nie on mówi za mnie, ale ja mam własny glos - bo jestem wykreowany przez AI. Mogę móić nie tylko o sobie, ale i o moim aktorze. Pytaj, ja Ci odpowiem.';
+const WELCOME_MSG = 'Witam. To ja, Andrzej Talar grany przez Tomasza Borkowego w serialu „Dom”. Tym razem to nie on mówi za mnie, ale ja mam własny głos — bo jestem wykreowany przez AI. Mogę nie tylko mówić o sobie, ale i o moim aktorze. Pytaj, ja Ci odpowiem.';
 
 // ── STATE ───────────────────────────────────────────────
 
@@ -58,7 +96,6 @@ function createConversation() {
   saveState();
   renderSidebar();
   renderMessages();
-
   focusInput();
 }
 
