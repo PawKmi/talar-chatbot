@@ -15,8 +15,12 @@ function dismissSplash() {
 function onYouTubeIframeAPIReady() {
   ytPlayer = new YT.Player('yt-player', {
     videoId: YOUTUBE_VIDEO_ID,
-    playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
+    playerVars: { autoplay: 1, mute: 0, rel: 0, modestbranding: 1, playsinline: 1 },
     events: {
+      onReady: (e) => {
+        document.getElementById('splash-cover').classList.add('hidden');
+        e.target.playVideo();
+      },
       onStateChange: (e) => {
         if (e.data === YT.PlayerState.ENDED) dismissSplash();
       }
@@ -27,11 +31,7 @@ window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
 
 document.getElementById('btn-play').addEventListener('click', () => {
   document.getElementById('splash-cover').classList.add('hidden');
-  if (ytPlayer && ytPlayer.playVideo) {
-    ytPlayer.playVideo();
-  } else {
-    onYouTubeIframeAPIReady();
-  }
+  if (ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
 });
 
 document.getElementById('btn-skip').addEventListener('click', dismissSplash);
