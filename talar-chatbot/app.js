@@ -10,7 +10,7 @@ function dismissSplash() {
 
 document.getElementById('btn-play').addEventListener('click', () => {
   document.getElementById('yt-player').innerHTML =
-    `<iframe src="https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+    `<iframe src="https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&controls=0&rel=0&playsinline=1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>`;
   document.getElementById('splash-cover').classList.add('hidden');
