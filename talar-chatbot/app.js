@@ -1,10 +1,6 @@
-// ── SPLASH / YOUTUBE ────────────────────────────────────
+// ── SPLASH / VIDEO ──────────────────────────────────────
 
-// Wklej tu ID filmu z YouTube (część URL po "watch?v=")
-// Np. dla https://www.youtube.com/watch?v=abc123 wpisz: 'abc123'
 const YOUTUBE_VIDEO_ID = 'hfqvNUy7XJc';
-
-let ytPlayer = null;
 
 function dismissSplash() {
   const splash = document.getElementById('splash');
@@ -12,26 +8,12 @@ function dismissSplash() {
   setTimeout(() => { splash.style.display = 'none'; }, 650);
 }
 
-function onYouTubeIframeAPIReady() {
-  ytPlayer = new YT.Player('yt-player', {
-    videoId: YOUTUBE_VIDEO_ID,
-    playerVars: { autoplay: 1, mute: 0, rel: 0, modestbranding: 1, playsinline: 1 },
-    events: {
-      onReady: (e) => {
-        document.getElementById('splash-cover').classList.add('hidden');
-        e.target.playVideo();
-      },
-      onStateChange: (e) => {
-        if (e.data === YT.PlayerState.ENDED) dismissSplash();
-      }
-    }
-  });
-}
-window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-
 document.getElementById('btn-play').addEventListener('click', () => {
+  document.getElementById('yt-player').innerHTML =
+    `<iframe src="https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>`;
   document.getElementById('splash-cover').classList.add('hidden');
-  if (ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
 });
 
 document.getElementById('btn-skip').addEventListener('click', dismissSplash);
