@@ -129,13 +129,19 @@ exports.handler = async (event) => {
   try {
     const { messages } = JSON.parse(event.body);
 
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'Brak wiadomości' }) };
+    }
+
+    const trimmedMessages = messages.slice(-10);
+
     const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
     const response = await client.messages.create({
       model: 'claude-sonnet-4-6',
       max_tokens: 1024,
       system: SYSTEM_PROMPT,
-      messages,
+      messages: trimmedMessages,
     });
 
     return {
