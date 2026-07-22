@@ -343,14 +343,6 @@ document.getElementById('sidebar-toggle').addEventListener('click', () => {
 
 document.getElementById('sidebar-overlay').addEventListener('click', closeSidebarOnMobile);
 
-// ── MOBILE VIEWPORT FIX ─────────────────────────────────
-
-function fixMobileViewport() {
-  document.querySelector('.app').style.height = window.innerHeight + 'px';
-}
-window.addEventListener('resize', fixMobileViewport);
-fixMobileViewport();
-
 // ── INIT ────────────────────────────────────────────────
 
 loadState();
