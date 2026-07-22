@@ -146,8 +146,11 @@ exports.handler = async (event) => {
     }
 
     for (const msg of messages) {
-      if (!msg || typeof msg.content !== 'string' || msg.content.length > 600 || !['user', 'assistant'].includes(msg.role)) {
+      if (!msg || typeof msg.content !== 'string' || !['user', 'assistant'].includes(msg.role)) {
         return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: 'Nieprawidłowe dane' }) };
+      }
+      if (msg.role === 'user' && msg.content.length > 600) {
+        return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: 'Wiadomość za długa' }) };
       }
     }
 
