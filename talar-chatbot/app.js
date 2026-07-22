@@ -24,7 +24,7 @@ document.getElementById('btn-start-chat').addEventListener('click', dismissSplas
 const STORAGE_KEY = 'talar_chatbot_v1';
 const MAX_USER_MESSAGES = 30;
 
-const WELCOME_MSG = 'Witam. To ja, Andrzej Talar grany przez Tomasza Borkowego w serialu „Dom”. Tym razem to nie on mówi za mnie, ale ja mam własny głos — bo jestem wykreowany przez AI. Mogę nie tylko mówić o sobie, ale i o moim aktorze. Pytaj, ja Ci odpowiem.';
+const WELCOME_MSG = 'Witam. To ja, Andrzej Talar grany przez Tomasza Borkowy w serialu „Dom”. Tym razem to nie on mówi za mnie, ale ja mam własny głos — bo jestem wykreowany przez AI. Mogę nie tylko mówić o sobie, ale i o moim aktorze. Pytaj, ja Ci odpowiem.';
 
 // ── STATE ───────────────────────────────────────────────
 
