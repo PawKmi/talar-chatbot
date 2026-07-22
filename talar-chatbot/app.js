@@ -1,6 +1,6 @@
 // ── SPLASH / VIDEO ──────────────────────────────────────
 
-const YOUTUBE_VIDEO_ID = 'hfqvNUy7XJc';
+const YOUTUBE_VIDEO_ID = 'Z51ghsbBAy8';
 
 function dismissSplash() {
   const splash = document.getElementById('splash');
