@@ -38,14 +38,7 @@ html, body {
 .app {
   display: flex;
   height: 100vh;
-  height: 100dvh;
   overflow: hidden;
-}
-
-@supports (-webkit-touch-callout: none) {
-  .app {
-    height: -webkit-fill-available;
-  }
 }
 
 /* ── SIDEBAR ─────────────────────────────────────── */
