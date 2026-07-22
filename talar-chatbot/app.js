@@ -22,6 +22,7 @@ document.getElementById('btn-start-chat').addEventListener('click', dismissSplas
 // ── CONSTANTS ──────────────────────────────────────────
 
 const STORAGE_KEY = 'talar_chatbot_v1';
+const MAX_USER_MESSAGES = 30;
 
 const WELCOME_MSG = 'Witam. To ja, Andrzej Talar grany przez Tomasza Borkowego w serialu „Dom”. Tym razem to nie on mówi za mnie, ale ja mam własny głos — bo jestem wykreowany przez AI. Mogę nie tylko mówić o sobie, ale i o moim aktorze. Pytaj, ja Ci odpowiem.';
 
@@ -241,6 +242,13 @@ function hideTyping() {
 async function sendMessage(text) {
   const conv = getActive();
   if (!conv) return;
+
+  const userMsgCount = conv.messages.filter(m => m.role === 'user').length;
+  if (userMsgCount >= MAX_USER_MESSAGES) {
+    appendBubble('bot', 'Osiągnęliśmy limit tej rozmowy (30 wiadomości). Kliknij + w lewym górnym rogu, aby rozpocząć nową rozmowę.', 'single');
+    scrollToBottom();
+    return;
+  }
 
   // Update title from first user message
   updateTitle(conv.id, text);
